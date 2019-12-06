@@ -21,8 +21,28 @@ suite("FizzBuzzTest", () => {
     test("15ならば文字型のFizzBuzzを返す", () => {
       assert.equal("FizzBuzz", fizzBuzz(15));
     });
+    suite("1から100までを返す", () => {
+      const result = generateList();
+      test("100ならば文字のBuzzを返す", () => {
+        assert.equal("Buzz", result[99]);
+      });
+      test("3ならば文字のFizzを返す", () => {
+        assert.equal("Fizz", result[2]);
+      });
+      test("5ならば文字のBuzzを返す", () => {
+        assert.equal("Buzz", result[4]);
+      });
+    });
   });
 });
+
+function generateList() {
+  let result = [];
+  for (let i = 1; i <= 100; i++) {
+    result.push(fizzBuzz(i));
+  }
+  return result;
+}
 
 function fizzBuzz(number) {
   let result = number.toString();

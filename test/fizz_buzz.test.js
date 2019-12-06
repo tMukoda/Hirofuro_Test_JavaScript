@@ -38,16 +38,24 @@ suite("FizzBuzzTest", () => {
 
 function generateList() {
   let result = [];
-  for (let i = 1; i <= 100; i++) {
-    result.push(fizzBuzz(i));
-  }
+  [...Array(100).keys()].forEach(i => {
+    result.push(fizzBuzz(i + 1));
+  });
+  // for (let i = 1; i <= 100; i++) {
+  //   result.push(fizzBuzz(i));
+  // }
   return result;
 }
 
 function fizzBuzz(number) {
-  let result = number.toString();
-  if (number % 3 === 0 && number % 5 === 0) result = "FizzBuzz";
-  else if (number % 3 === 0) result = "Fizz";
-  else if (number % 5 === 0) result = "Buzz";
-  return result;
+  const FIZZ = "Fizz";
+  const BUZZ = "Buzz";
+  const isFizz = number % 3 === 0;
+  const isBuzz = number % 5 === 0;
+
+  if (isFizz && isBuzz) return FIZZ + BUZZ;
+  if (isFizz) return FIZZ;
+  if (isBuzz) return BUZZ;
+
+  return number.toString();
 }

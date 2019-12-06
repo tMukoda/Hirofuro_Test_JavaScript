@@ -37,14 +37,15 @@ suite("FizzBuzzTest", () => {
 });
 
 function generateList() {
-  let result = [];
-  [...Array(100).keys()].forEach(i => {
-    result.push(fizzBuzz(i + 1));
-  });
+  // let result = [];
+  // [...Array(100).keys()].forEach(i => {
+  //   result.push(fizzBuzz(i + 1));
+  // });
   // for (let i = 1; i <= 100; i++) {
   //   result.push(fizzBuzz(i));
   // }
-  return result;
+
+  return [...Array(100).keys()].map(i => fizzBuzz(i + 1));
 }
 
 function fizzBuzz(number) {
